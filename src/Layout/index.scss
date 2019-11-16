@@ -1,0 +1,17 @@
+.layout-content {
+     background-color: aqua;
+}
+.layout-container {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.layout-left {
+    width: 300px;
+}
+.layout-content {
+    flex-grow: 1;
+}
