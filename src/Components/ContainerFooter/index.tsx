@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import Aria2, { Aria2Info } from "Aria2"
+import Aria2, { Aria2Info, Aria2Rpc, Aria2RpcResponse, GlobalStat } from "Aria2"
 import { Container, Row, Col} from 'react-bootstrap'
 
 
 const ContainerFooter: React.FC = () => {
-  const [speedInfo, setSpeedInfo] = useState<any>({})
+  const [speedInfo, setSpeedInfo] = useState<GlobalStat>({
+    uploadSpeed: 0,
+    downloadSpeed: 0,
+    numActive: 0,
+    numWaiting: 0,
+    numStopped: 0,
+    numStoppedTotal: 0,
+  })
   useEffect(() => {
     // 获取速度
     const getSpeed = () => {
       setTimeout(getSpeed, 5000);
-      Aria2Info.getSpeedInfo().then(rs => {
+      Aria2Rpc.getGlobalStat().then(rs => {
         setSpeedInfo(rs.result);
       })
     }
