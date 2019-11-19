@@ -10,8 +10,26 @@
     width: 100%;
 }
 .layout-left {
+    .ra-mark {
+        border-bottom: 2px ;
+        border-bottom-style: double;
+    }
     width:200px;
+    transition: width 0.2s;
+    &.clospe {
+        transition: width 0.2s ease-in;
+        // transform: scale(0.5, 2);
+        width: 100px;
+    }
 }
 .layout-content {
     flex-grow: 1;
+}
+
+.button-toggle {
+    position: absolute;
+    bottom: 0px;
+    &:hover{
+        cursor: pointer;
+    }
 }

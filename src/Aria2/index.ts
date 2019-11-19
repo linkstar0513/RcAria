@@ -33,12 +33,18 @@ class Aria2Client {
   /**
    * 调用方法
    */
-  call = async (method: string, params?: Object | Array<any>) => {
+  call = async (method: string, parameters?: Object | Array<any>) => {
+    let params: Array<any> = []
     const data = {
       id: new Date().getTime(),
       method: method,
       jsonrpc: '2.0',
       // params,
+    }
+    
+    if (Array.isArray(parameters)) {
+      // params = params.concat(parameters)
+      params.push(parameters)
     }
     if (params) Object.assign(data, { params })
     // TODO 加密
@@ -116,6 +122,82 @@ export const Aria2Info: any = {
   onBtDownloadComplete: () => { },
 };
 export class Aria2Rpc {
+  static addUri: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static addTorrent: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static addMetalink: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static remove: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static forceRemove: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static pause: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static pauseAll: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static forcePause: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static forcePauseAll: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static unpause: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static unpauseAll: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static tellStatus: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static getUris: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static getFiles: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static getPeers: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static getServers: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  /**活动中的数据 */
+  static tellActive: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.tellActive", ["gid","totalLength","completedLength","uploadSpeed","downloadSpeed","connections","numSeeders","seeder","status","errorCode","verifiedLength","verifyIntegrityPending"])
+  }
+  static tellWaiting: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static tellStopped: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static changePosition: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static changeUri: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static getOption: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static changeOption: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static getGlobalOption: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
+  static changeGlobalOption: () => Promise<Aria2RpcResponse<any>> = () => {
+    return Aria2.call("aria2.getGlobalStat")
+  }
   static getGlobalStat: () => Promise<Aria2RpcResponse<GlobalStat>> = () => {
     return Aria2.call("aria2.getGlobalStat")
   }
