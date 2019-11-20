@@ -19,7 +19,19 @@
     "isolatedModules": true,
     "noEmit": true,
     "paths": {
-      "@":["src"]
+      "@":["src"],
+      "@/component/*": [
+        "src/component/*"
+      ],
+      "@/service/*": [
+        "src/service/*"
+      ],
+      "@/util/*": [
+        "src/util/*"
+      ],
+      "@/page/*": [
+        "src/page/*"
+      ]
     },
     "jsx": "react"
   },
